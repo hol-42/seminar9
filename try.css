@@ -1,0 +1,9 @@
+.mydiv {
+  margin: 10%; 
+  height: 200px;
+  width: 100px;
+}
+
+#outside {
+    width:500px;
+}

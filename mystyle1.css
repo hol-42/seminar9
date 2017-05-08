@@ -1,0 +1,41 @@
+header,
+section,
+aside,
+footer {
+  /* Margin gilt für oben, rechts, unten, links https://developer.mozilla.org/de/docs/Web/CSS/margin 
+     Margin ist der Rand ausserhalb des des Borders
+     Also von aussen nach innen Margin, Border, Padding - Padding der Rand innerhalb des Borders
+     Prozent bezieht sich auf die Breite des containers der das ganze beinhaltet (also Body in diesen Fällen)
+     Siehe try.html und try.css für exakten Beweis
+  */
+  margin: 0 1% 24px 1%; 
+}
+section {
+  /* float:left sorgt dafür, dass die Sektion links "schwimmt" und 63% des Platzes einnimmt  
+     float bedeutet grundsätzlich, dass ein Element nicht dem normalen Fluss einer Seite folgt sondern es
+     in diesem Fall links zu seinem Eltern Element (body in diesem Fall) positioniert wird. Alle anderen
+     Elemente "floaten" jetzt um das Element herum. 
+     Bei einem Bild wie eine <img> Tag würde der Text um das Bild herum gehen. Wenn wir mehrere
+     Elemente haben die "schwimmen" kann man so verursachen, dass die Elemente nebeneinander in Spalten stehen.
+  */
+  float: left;
+  /* Die Grössenangabe ist hier wichtig. Sonst würde das Element den Platz einnehmen gemäss Inhalt. der ist
+     recht viel und damit würde die Sektion wieder den ganzen Platz einnehmen. Oder wenn es nur ganz wenig
+     inhalt hätte würde es ziemlich schmall sein */
+  width: 63%;
+}
+aside {
+  /* float:right sorgt dafür, dass der Absatz rechts "schwimmt" und 30% des Platzes einnimmt  */
+  float: right;
+  /* Ditto zu section ist die Breite wichtig anzugeben, da sonst die Breite vom Inhalt abhängig ist */
+  width: 30%;
+}
+footer {
+  /* Aber den Footer wollen wir nicht unter dem "aside" haben, mit clear: both löst man das "schwimmen" wieder auf
+     Footer würde ohne dem unter dem aside platziert werden, weil dort Platz ist. Oder unter section wenn dort Platz wäre.
+     oder wenn man die Breite geringer machen würden in der Mitte dazwischen. Mit clear:both verursacht man, dass der Footer
+     wirklich unter den zwei schwimmenden Elementen sitzt.
+     http://stackoverflow.com/a/27082817/382009 */
+  clear: both;
+  margin-bottom: 0;
+}

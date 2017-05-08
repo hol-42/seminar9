@@ -1,0 +1,29 @@
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%;
+}
+nav {
+  /* Die Nav Bar wollen wir auch floaten aber sie soll den ganzen Platz einnehmen,
+     damit die folgenden Floating Elemente auf der nächsten "Zeile" anfangen*/
+  float: left;
+  width: 100%;
+}
+nav > ul > li {
+  /* Innerhalb von nav sollen die Listenelemente auch nebeneinander sein*/
+  float: left;
+  margin: 0 2% 24px 2%;
+}
+section {
+  float: left;
+  width: 63%;
+}
+aside {
+  float: right;
+  width: 30%;
+}
+footer {
+  clear: both;
+  margin-bottom: 0;
+}

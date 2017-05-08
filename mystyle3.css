@@ -1,0 +1,35 @@
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%;
+}
+nav > ul > li {
+  /* Innerhalb von nav sollen die Listenelemente auch nebeneinander sein*/
+  float: left;
+  margin: 0 2% 0 2%;
+}
+section {
+  float: left;
+  width: 63%;
+}
+aside {
+  float: right;
+  width: 30%;
+}
+footer {
+  margin-bottom: 0;
+}
+
+/* :before und :after sind pseudo-elemente mit denen man Styling davor und danach angeben kann 
+   Das folgende wird "Clearfix" genannt. Es gibt davon viele Versionen davon im Netz, besonders
+   wenn frühere Browser unterstützt werden müssen und die waren lange und kompliziert.
+   https://css-tricks.com/snippets/css/clear-fix/
+   Man bräuchte auch eine :before Aber wenn man die Navigation als Teil des Headers ansieht und
+   diesem dann die clearfix Klasse gibt, erreichen wir was wir wollen
+*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

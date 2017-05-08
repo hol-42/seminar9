@@ -1,0 +1,32 @@
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%;
+}
+nav > ul > li {
+  float: left;
+  margin: 0 2% 0 2%;
+}
+section {
+  /* Inline-Block funktioniert auch um Section und Aside nebeneneinander zu bekommen */
+  display: inline-block;
+  width: 63%;
+  /* Jetzt benötigt es aber dies, weil sonst wird die jeweils kleinere Spalte von unten ab angezeigt */
+  vertical-align: top;
+}
+aside {
+  /* Hier entsprechend auch*/
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+footer {
+  margin-bottom: 0;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
