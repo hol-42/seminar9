@@ -349,4 +349,139 @@ footer {
   clear: both;
 }
 ```
+## SASS
+
+Das ist eine über CSS gestülpte Sprache. SASS ist schon vorinstalliert. Damit
+Dateien vom type `SCSS` automatisch in `CSS` umgewandelt werden muss im 
+Terminal ein "Watcher" laufen:
+
+```bash
+hol42:~/workspace (master) $ sass --watch css
+```
+
+Es wird auch immer eine `.css.map` erstellt. Die Chrome Developer Tools lesen
+diese Map Files. Sie sind nur `JSON` formatierte Dateien und erlauben es so, 
+statt CSS direkt SCSS in den Developer Tools zu sehen.
+
+Experimente laufen mit `sass_1.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+ 	<meta charset="utf-8">
+	<title>Willkommen</title>
+	<link rel="stylesheet" type="text/css" href="css/sass_1.css">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    <header class="clearfix">
+        <div class="welcome">Willkommen zu meiner Homepage</div><!-- 
+         
+        --><div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="produkte.html">Produkte</a></li>
+                    <li><a href="ueber_uns.html">Über uns</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="clearfix">
+        <section>
+            Lorem ipsum dolor usw. und so fort bis der Blindtext nicht mehr weiter weiss. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </section><aside>
+            Das ist der nebendran text. Den man in einer weiteren Spalte sehen könnte und wo man irgendwelches Zeug reinschreibt.
+        </aside>
+    </div>
+    <footer>
+        <p>Copyright 2017</p>
+        <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
+```
+
+Es gibt verschiedene sinnvolle Sprachelemente, die einem das Leben mit CSS
+etwas erleichtert:
+
+```SCSS
+@import 'reset';
+@import 'useful';
+@import 'mycolors';
+@import 'font-families';
+
+$font-family: $font-avant-garde;
+
+body {
+  font-family: $font-family;
+  color: $main; 
+  background-color: $background-color;
+}
+
+header {
+  .welcome {
+    float: left;
+    font-weight: bold;
+  }
+  .menu {
+    float: right;
+    nav {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+    
+      li { 
+        display: inline-block; 
+        margin: 0.25em;
+      }
+    }
+  }
+}
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%;
+}
+/* Gilt immer */
+section, aside {
+  vertical-align: top;
+}
+/* Gilt bei schmall */
+@media all and (min-width: 420px) {
+  section, aside {
+    display: inline-block;
+  }
+  section {
+    width: (2/3) * 90%;
+  }
+  aside {
+    width: (1/3) * 90%;
+  }
+}
+footer {
+  margin-bottom: 0;
+  li { 
+    margin-left: 1em;
+  }
+}
+```
+
+Was ist hier sinnvolles passiert
+
+- Sachen die man immer wieder braucht kann man in `@imports` auslagern.
+- Variablen für die Font-Familien
+- Verschachtelte (Nested) Selektoren
+- Berechnungen, z.B. (2/3) * 90%
+
+Es gibt noch einiges mehr: http://sass-lang.com/guide
+
 

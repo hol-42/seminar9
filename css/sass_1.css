@@ -1,0 +1,57 @@
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+body {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  color: #013f21;
+  background-color: #e3e9ed; }
+
+header .welcome {
+  float: left;
+  font-weight: bold; }
+header .menu {
+  float: right; }
+  header .menu nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  header .menu nav li {
+    display: inline-block;
+    margin: 0.25em; }
+
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%; }
+
+/* Gilt immer */
+section, aside {
+  vertical-align: top; }
+
+/* Gilt bei schmall */
+@media all and (min-width: 420px) {
+  section, aside {
+    display: inline-block; }
+
+  section {
+    width: 60%; }
+
+  aside {
+    width: 30%; } }
+footer {
+  margin-bottom: 0; }
+  footer li {
+    margin-left: 1em; }
+
+/*# sourceMappingURL=sass_1.css.map */

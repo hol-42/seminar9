@@ -1,9 +1,31 @@
-.mydiv {
-  margin: 10%; 
+.mydiv1 {
+  background-color: yellow;
+  box-sizing: border-box;
+  margin: 5px; 
+  border-style: dotted; 
+  border-color: black;
+  border-width: 10px;
+  padding: 20px; 
   height: 200px;
-  width: 100px;
+  width: 200px;
+  border-radius:  40px/40px;
+  -webkit-border-radius: 40px/40px; /* Webkit: Safari und Chrome */
+     -moz-border-radius: 40px/40px; /* Moz: Firefox */
+      -ms-border-radius: 40px/40px; /* IE */
+         border-radius:  40px/40px; /* Bei allen Browsern neuer Version unterstützt */
 }
-
-#outside {
-    width:500px;
+.mydiv2 {
+  background-color: green;
+  box-sizing: content-box;
+  margin: 5px; 
+  border-style: dotted; 
+  border-color: black;
+  border-width: 10px;
+  padding: 20px; 
+  height: 200px;
+  width: 200px;
+  -webkit-border-radius: 40px/40px; /* Webkit: Safari und Chrome */
+     -moz-border-radius: 40px/40px; /* Moz: Firefox */
+      -ms-border-radius: 40px/40px; /* IE */
+         border-radius:  40px/40px; /* Bei allen Browsern neuer Version unterstützt */
 }

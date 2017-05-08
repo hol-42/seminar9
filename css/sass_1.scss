@@ -1,0 +1,63 @@
+@import 'reset';
+@import 'useful';
+@import 'mycolors';
+@import 'font-families';
+
+$font-family: $font-avant-garde;
+
+body {
+  font-family: $font-family;
+  color: $main; 
+  background-color: $background-color;
+}
+
+header {
+  .welcome {
+    float: left;
+    font-weight: bold;
+  }
+  .menu {
+    float: right;
+    nav {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+    
+      li { 
+        display: inline-block; 
+        margin: 0.25em;
+      }
+    }
+  }
+}
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%;
+}
+/* Gilt immer */
+section, aside {
+  vertical-align: top;
+}
+/* Gilt bei schmall */
+@media all and (min-width: 420px) {
+  section, aside {
+    display: inline-block;
+  }
+  section {
+    width: (2/3) * 90%;
+  }
+  aside {
+    width: (1/3) * 90%;
+  }
+}
+footer {
+  margin-bottom: 0;
+  li { 
+    margin-left: 1em;
+  }
+}
+
