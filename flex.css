@@ -1,0 +1,15 @@
+.main {
+    display: flex;
+    flex-flow: row;
+}
+section {
+    flex: 70%;
+    order: 1;
+}
+aside {
+    flex: 30%;
+    order: 2;
+}
+nav > ul > li {
+    display: inline-block;
+}
