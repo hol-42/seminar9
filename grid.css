@@ -1,0 +1,29 @@
+body {
+    display: grid;
+    grid-template-areas:
+            "header header "
+            "nav nav"
+            "section aside"
+            "footer footer";
+    grid-template-columns: 70% 30%;
+    grid-gap: 10px;
+}
+header {
+    grid-area: header;
+}
+nav {
+    grid-area: nav;
+}
+nav > ul > li {
+    display: inline-block;
+}
+section {
+    grid-area: section;
+}
+aside {
+    grid-area: aside;
+}
+footer {
+    grid-area: footer;
+}
+

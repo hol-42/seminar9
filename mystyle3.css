@@ -33,3 +33,30 @@ footer {
   display: table;
   clear: both;
 }
+.parent {
+  border: solid 1px;
+}
+.floater {
+  border: solid 1px red;
+  float: left;
+}
+.inline-block {
+  display: inline-block;
+  border: solid 1px green;
+}
+.flex-parent {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.flex-parent > div {
+  border: solid 1px blue;
+}
+.flex-a {
+  order: 3;
+}
+.flex-b {
+  order: 2;
+}
+.flex-c {
+  order: 1;
+}

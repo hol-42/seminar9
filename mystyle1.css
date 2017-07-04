@@ -9,6 +9,7 @@ footer {
      Siehe try.html und try.css für exakten Beweis
   */
   margin: 0 1% 24px 1%; 
+  border: solid 1px;
 }
 section {
   /* float:left sorgt dafür, dass die Sektion links "schwimmt" und 63% des Platzes einnimmt  
