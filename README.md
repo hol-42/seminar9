@@ -484,4 +484,232 @@ Was ist hier sinnvolles passiert
 
 Es gibt noch einiges mehr: http://sass-lang.com/guide
 
+## Flexbox
+
+Float ist eigentlich schon längst wieder out und war auch eigentlich wirklich
+nur für das einpassen von Bildern im Fluss eines Textes. Siehe Beispiel:
+https://css-tricks.com/all-about-floats/
+
+Es ist somit ein Hack. Punkt.
+
+Danach kam Flexbox und jetzt neu gibt es CSS Grid. Beide zusammen bieten
+ihre Möglichkeiten. CSS Grid funktioniert nur auf den neuesten Browser
+Versionen.
+
+Siehe `flex.html` und `flex.css` wie unser Layout gestylt werden kann:
+
+```HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Willkommen</title>
+    <link rel="stylesheet" type="text/css" href="flex.css">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<header class="clearfix">
+    Willkommen zu meiner Homepage
+</header>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produkte.html">Produkte</a></li>
+        <li><a href="ueber_uns.html">Über uns</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+</nav>
+<div class="main">
+    <section>
+        Lorem ipsum dolor usw. und so fort bis der Blindtext nicht mehr weiter weiss. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </section>
+    <aside>
+        Das ist der nebendran text. Den man in einer weiteren Spalte sehen könnte und wo man irgendwelches Zeug reinschreibt.
+    </aside>
+</div>
+<footer>
+    <p>Copyright 2017</p>
+    <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+</footer>
+</body>
+</html>
+```
+
+```CSS
+.main {
+    display: flex;
+    flex-flow: row;
+}
+section {
+    flex: 70%;
+    order: 1;
+}
+aside {
+    flex: 30%;
+    order: 2;
+}
+nav > ul > li {
+    display: inline-block;
+}
+```
+
+Der Bereich der von `section` und `aside` wird in der `div` mit Klasse `.main`
+gesteckt. 
+
+Klasse `.main` wird dann unter Kontrolle von Flexbox gestellt mit `display: flex`.
+Der Flow wird auf `row` gestellt, dazu gleich noch mehr.
+
+Die Kinder-Element `section` und `aside` erhalten 70% bzw. 30% und werden angeordnet. 
+Man kann mit der `order` ganz leicht also die zwei vertauschen.
+
+Das Menü wurde einfach mit in `inline-block` nebeneinander gestellt.
+
+Auf dieser Seite kann sehr gut gezeigt werden was die Möglichkeiten von
+Flexbox sind und wie es viele Problem löst. Heute kann man davon ausgehen,
+dass alle Browser Flexbox beherrschen: http://the-echoplex.net/flexyboxes/
+
+
+# CSS Grid
+
+Leider können nur die neuesten Versionen Browser CSS Grid. So kann 
+es die Version 52 des Chrome Browsers vom Juli 2016 nicht. Es gibt
+dafür ein Polyfill (Polyfills sind JS Routinen, die älteren Browsern features
+von neueren Browsern beibringen). Im Beispiel ist
+
+```HTML
+<script src="css-polyfills.min.js"></script>
+```
+
+enthalten. Das hierher kommt: https://github.com/FremyCompany/css-grid-polyfill
+
+Zu Grid gibt es viele gute Einführungswebseiten. Diese fand ich persönliche
+am verständlichsten, neben der offiziellen W3C Doku:
+
+https://www.quackit.com/css/grid/tutorial/create_a_website_layout.cfm
+
+https://www.w3.org/TR/css-grid-1/#intro
+
+Hier das Beispiel. Zuerst der HTML Code von `grid.html`
+
+```HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Willkommen</title>
+    <link rel="stylesheet" type="text/css" href="grid.css">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<header class="clearfix">
+    Willkommen zu meiner Homepage
+</header>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produkte.html">Produkte</a></li>
+        <li><a href="ueber_uns.html">Über uns</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+</nav>
+<section>
+    Lorem ipsum dolor usw. und so fort bis der Blindtext nicht mehr weiter weiss. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+</section>
+<aside>
+    Das ist der nebendran text. Den man in einer weiteren Spalte sehen könnte und wo man irgendwelches Zeug reinschreibt.
+</aside>
+<footer>
+    <p>Copyright 2017</p>
+    <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+</footer>
+<script src="css-polyfills.min.js"></script>
+</body>
+</html>
+```
+
+Dazu das `grid.css`
+
+```CSS
+body {
+    display: grid;
+    grid-template-areas:
+            "header header "
+            "nav nav"
+            "section aside"
+            "footer footer";
+    grid-template-columns: 70% 30%;
+    grid-gap: 10px;
+}
+header {
+    grid-area: header;
+}
+nav {
+    grid-area: nav;
+}
+nav > ul > li {
+    display: inline-block;
+}
+section {
+    grid-area: section;
+}
+aside {
+    grid-area: aside;
+}
+footer {
+    grid-area: footer;
+}
+```
+
+Für den gesamten Body wird mit `display: grid` auf Grid CSS Modus umgeschaltet.
+Die Grid Areas werden angordnet, wobei man einfach das Element wiederholt, wenn
+man es über zwei Spalten hinweg benötigt (`grid-template-areas`).
+
+die Spaltengrössen werden festgelegt (`grid-template-columns`), der Platz dazwischen
+wird mit `grid-gap` bestimmt. 
+
+Dansch werden einfach die einzelnen Elemente benennt. Zur Einfachheit habe ich die 
+Grid Elemente gleich genannt, das könnte aber auch verwirrend sein.
+
+# Holy Grail Layout
+
+Das ist das übliche Layout von oben Header, mitte 3 Spaltig, unten Footer.
+
+Siehe `grid2.html` (identisch) und `grid2.css`
+
+```HTML
+body {
+    display: grid;
+    grid-template-areas:
+            "header header header "
+            "nav section aside"
+            "footer footer footer";
+    grid-template-columns: 20% 50% 30%;
+    grid-gap: 10px;
+}
+header {
+    grid-area: header;
+}
+nav {
+    grid-area: nav;
+}
+section {
+    grid-area: section;
+}
+aside {
+    grid-area: aside;
+}
+footer {
+    grid-area: footer;
+}
+```
+
+
+
+
 
